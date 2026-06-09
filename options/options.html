@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简历填充助手 - 设置</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>⚙️ 简历填充助手设置</h1>
+    </header>
+
+    <main class="main">
+      <!-- 简历数据管理 -->
+      <section class="section">
+        <h2 class="section-title">📋 简历数据</h2>
+        <div class="form-group">
+          <label>姓名</label>
+          <input type="text" id="name" placeholder="您的姓名">
+        </div>
+        <div class="form-group">
+          <label>性别</label>
+          <select id="gender">
+            <option value="">请选择</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>出生年月</label>
+          <input type="text" id="birthday" placeholder="如: 2003年11月">
+        </div>
+        <div class="form-group">
+          <label>政治面貌</label>
+          <select id="politicsStatus">
+            <option value="">请选择</option>
+            <option value="中共党员">中共党员</option>
+            <option value="预备党员">预备党员</option>
+            <option value="共青团员">共青团员</option>
+            <option value="群众">群众</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>手机号码</label>
+          <input type="tel" id="phone" placeholder="13800138000">
+        </div>
+        <div class="form-group">
+          <label>电子邮箱</label>
+          <input type="email" id="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>微信</label>
+          <input type="text" id="wechat" placeholder="微信号">
+        </div>
+        <div class="form-group">
+          <label>GitHub / 个人主页</label>
+          <input type="url" id="homepage" placeholder="github.com/username">
+        </div>
+      </section>
+
+      <!-- 教育经历 -->
+      <section class="section">
+        <h2 class="section-title">🎓 教育经历</h2>
+        <div id="educationList">
+          <!-- 动态添加 -->
+        </div>
+        <button class="btn btn-add" id="addEducation">+ 添加教育经历</button>
+      </section>
+
+      <!-- 工作经历 -->
+      <section class="section">
+        <h2 class="section-title">💼 工作经历</h2>
+        <div id="workList">
+          <!-- 动态添加 -->
+        </div>
+        <button class="btn btn-add" id="addWork">+ 添加工作经历</button>
+      </section>
+
+      <!-- 项目经历 -->
+      <section class="section">
+        <h2 class="section-title">📁 项目经历</h2>
+        <div id="projectList">
+          <!-- 动态添加 -->
+        </div>
+        <button class="btn btn-add" id="addProject">+ 添加项目经历</button>
+      </section>
+
+      <!-- 校园经历 -->
+      <section class="section">
+        <h2 class="section-title">🏫 校园经历</h2>
+        <div id="campusList">
+          <!-- 动态添加 -->
+        </div>
+        <button class="btn btn-add" id="addCampus">+ 添加校园经历</button>
+      </section>
+
+      <!-- 技能 -->
+      <section class="section">
+        <h2 class="section-title">🛠️ 技能特长</h2>
+        <div class="form-group">
+          <label>办公软件</label>
+          <input type="text" id="officeSkills" placeholder="如: Office, Excel, PowerPoint">
+        </div>
+        <div class="form-group">
+          <label>设计工具</label>
+          <input type="text" id="designSkills" placeholder="如: Axure, ProcessOn, Xmind">
+        </div>
+        <div class="form-group">
+          <label>语言能力</label>
+          <div class="language-inputs" id="languageInputs">
+            <!-- 动态添加 -->
+          </div>
+          <button class="btn btn-small" id="addLanguage">+ 添加语言</button>
+        </div>
+        <div class="form-group">
+          <label>其他技能</label>
+          <input type="text" id="otherSkills" placeholder="如: AIGC, Python">
+        </div>
+      </section>
+
+      <!-- 个人总结 -->
+      <section class="section">
+        <h2 class="section-title">📝 个人总结</h2>
+        <div class="form-group">
+          <label>工作风格</label>
+          <textarea id="workStyle" rows="2" placeholder="如: 执行力强、责任心突出"></textarea>
+        </div>
+        <div class="form-group">
+          <label>性格特点</label>
+          <textarea id="personality" rows="2" placeholder="如: E人属性，协调配合团队成员"></textarea>
+        </div>
+        <div class="form-group">
+          <label>兴趣爱好</label>
+          <input type="text" id="hobbies" placeholder="如: 羽毛球、游泳、音乐">
+        </div>
+      </section>
+
+      <!-- 操作按钮 -->
+      <section class="section actions">
+        <button class="btn btn-primary" id="saveBtn">💾 保存</button>
+        <button class="btn btn-secondary" id="resetBtn">🔄 重置</button>
+        <button class="btn btn-secondary" id="exportBtn">📤 导出 JSON</button>
+        <button class="btn btn-secondary" id="importBtn">📥 导入 JSON</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>简历填充助手 v1.0.0</p>
+    </footer>
+  </div>
+
+  <!-- 模板 -->
+  <template id="educationTemplate">
+    <div class="item-card">
+      <div class="card-header">
+        <span class="card-title">教育经历</span>
+        <button class="btn-delete" onclick="removeCard(this)">×</button>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>学校名称</label>
+          <input type="text" class="edu-school" placeholder="学校名称">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>学历</label>
+            <select class="edu-degree">
+              <option value="">请选择</option>
+              <option value="本科">本科</option>
+              <option value="硕士">硕士</option>
+              <option value="博士">博士</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>专业</label>
+            <input type="text" class="edu-major" placeholder="专业名称">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>入学时间</label>
+            <input type="text" class="edu-start" placeholder="如: 2021.09">
+          </div>
+          <div class="form-group">
+            <label>毕业时间</label>
+            <input type="text" class="edu-end" placeholder="如: 2025.06">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>排名 / GPA</label>
+          <input type="text" class="edu-ranking" placeholder="如: 3/118 (Top 3%)">
+        </div>
+        <div class="form-group">
+          <label>奖项荣誉</label>
+          <textarea class="edu-honors" rows="2" placeholder="奖学金、竞赛获奖等"></textarea>
+        </div>
+        <div class="form-group">
+          <label>主修课程</label>
+          <textarea class="edu-courses" rows="2" placeholder="主要课程，用逗号分隔"></textarea>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="workTemplate">
+    <div class="item-card">
+      <div class="card-header">
+        <span class="card-title">工作经历</span>
+        <button class="btn-delete" onclick="removeCard(this)">×</button>
+      </div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>公司名称</label>
+            <input type="text" class="work-company" placeholder="公司名称">
+          </div>
+          <div class="form-group">
+            <label>职位</label>
+            <input type="text" class="work-position" placeholder="担任职位">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>部门</label>
+          <input type="text" class="work-department" placeholder="所属部门">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>开始时间</label>
+            <input type="text" class="work-start" placeholder="如: 2025.02">
+          </div>
+          <div class="form-group">
+            <label>结束时间</label>
+            <input type="text" class="work-end" placeholder="如: 至今">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>工作亮点 (每行一条)</label>
+          <textarea class="work-highlights" rows="4" placeholder="主要工作内容和成就"></textarea>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="projectTemplate">
+    <div class="item-card">
+      <div class="card-header">
+        <span class="card-title">项目经历</span>
+        <button class="btn-delete" onclick="removeCard(this)">×</button>
+      </div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>项目名称</label>
+            <input type="text" class="proj-name" placeholder="项目名称">
+          </div>
+          <div class="form-group">
+            <label>角色</label>
+            <input type="text" class="proj-role" placeholder="担任角色">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>开始时间</label>
+            <input type="text" class="proj-start" placeholder="如: 2023.01">
+          </div>
+          <div class="form-group">
+            <label>结束时间</label>
+            <input type="text" class="proj-end" placeholder="如: 2024.11">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>项目描述 (每行一条)</label>
+          <textarea class="proj-highlights" rows="4" placeholder="项目内容和成就"></textarea>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="campusTemplate">
+    <div class="item-card">
+      <div class="card-header">
+        <span class="card-title">校园经历</span>
+        <button class="btn-delete" onclick="removeCard(this)">×</button>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>组织名称</label>
+          <input type="text" class="campus-org" placeholder="学生会、社团等">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>职位</label>
+            <input type="text" class="campus-position" placeholder="担任职位">
+          </div>
+          <div class="form-group">
+            <label>时间</label>
+            <input type="text" class="campus-time" placeholder="如: 2021.09-2023.06">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>经历描述 (每行一条)</label>
+          <textarea class="campus-highlights" rows="4" placeholder="主要工作内容"></textarea>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <input type="file" id="importFile" accept=".json" style="display: none;">
+
+  <script src="options.js"></script>
+</body>
+</html>

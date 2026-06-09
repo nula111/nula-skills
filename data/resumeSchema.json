@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "简历数据结构",
+  "description": "简历自动填充插件使用的数据格式",
+  "type": "object",
+  "required": ["basic"],
+  "properties": {
+    "basic": {
+      "type": "object",
+      "required": ["name", "phone", "email"],
+      "properties": {
+        "name": { "type": "string", "description": "姓名" },
+        "gender": { "type": "string", "description": "性别" },
+        "birthday": { "type": "string", "description": "出生年月" },
+        "politicsStatus": { "type": "string", "description": "政治面貌" },
+        "phone": { "type": "string", "description": "手机号码" },
+        "email": { "type": "string", "description": "电子邮箱" },
+        "wechat": { "type": "string", "description": "微信号" },
+        "location": { "type": "string", "description": "居住地" },
+        "homepage": { "type": "string", "description": "个人主页/GitHub" }
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "school": { "type": "string", "description": "学校名称" },
+          "degree": { "type": "string", "description": "学历" },
+          "major": { "type": "string", "description": "专业" },
+          "startDate": { "type": "string", "description": "入学时间" },
+          "endDate": { "type": "string", "description": "毕业时间" },
+          "is985": { "type": "boolean", "description": "是否985" },
+          "is211": { "type": "boolean", "description": "是否211" },
+          "isDoubleFirstClass": { "type": "boolean", "description": "是否双一流" },
+          "gpa": { "type": "string", "description": "GPA/排名" },
+          "ranking": { "type": "string", "description": "专业排名" },
+          "honors": { "type": "string", "description": "奖项荣誉" },
+          "courses": { "type": "string", "description": "主修课程" },
+          "researchDirection": { "type": "string", "description": "研究方向" }
+        }
+      }
+    },
+    "workExperience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "company": { "type": "string", "description": "公司名称" },
+          "department": { "type": "string", "description": "部门" },
+          "position": { "type": "string", "description": "职位" },
+          "startDate": { "type": "string", "description": "开始时间" },
+          "endDate": { "type": "string", "description": "结束时间" },
+          "highlights": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "工作亮点/成就"
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "项目名称" },
+          "role": { "type": "string", "description": "角色" },
+          "startDate": { "type": "string", "description": "开始时间" },
+          "endDate": { "type": "string", "description": "结束时间" },
+          "highlights": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "项目描述/成就"
+          }
+        }
+      }
+    },
+    "campusExperience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "organization": { "type": "string", "description": "组织名称" },
+          "position": { "type": "string", "description": "职位" },
+          "startDate": { "type": "string", "description": "开始时间" },
+          "endDate": { "type": "string", "description": "结束时间" },
+          "highlights": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "经历描述"
+          }
+        }
+      }
+    },
+    "skills": {
+      "type": "object",
+      "properties": {
+        "office": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "办公软件"
+        },
+        "design": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "设计工具"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "score": { "type": "string" }
+            }
+          },
+          "description": "语言能力"
+        },
+        "tools": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "其他工具/技能"
+        }
+      }
+    },
+    "personalSummary": {
+      "type": "object",
+      "properties": {
+        "workStyle": { "type": "string", "description": "工作风格" },
+        "personality": { "type": "string", "description": "性格特点" },
+        "hobbies": { "type": "string", "description": "兴趣爱好" }
+      }
+    }
+  }
+}

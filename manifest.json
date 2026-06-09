@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "简历自动填充助手",
+  "version": "1.0.0",
+  "description": "帮助用户在招聘网站自动填充简历信息，支持多种字段类型和站点适配",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.zhipin.com/*",
+    "*://*.zhaopin.com/*",
+    "*://*.51job.com/*",
+    "*://*.liepin.com/*",
+    "*://*.lagou.com/*",
+    "*://*.jd.com/*",
+    "*://*.tencent.com/*",
+    "*://*.alibaba.com/*",
+    "*://*.bytedance.com/*",
+    "*://*.baidu.com/*",
+    "*://*/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/fieldDetector.js", "content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

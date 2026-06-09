@@ -1,0 +1,163 @@
+{
+  "version": "1.0.0",
+  "description": "字段识别规则库",
+  "fieldTypes": {
+    "name": {
+      "keywords": ["name", "username", "realname", "姓名", "您的姓名", "个人姓名", "真实姓名"],
+      "priority": 10
+    },
+    "gender": {
+      "keywords": ["gender", "sex", "性别"],
+      "priority": 10
+    },
+    "birthday": {
+      "keywords": ["birthday", "birth", "birthdate", "出生日期", "生日", "出生年月"],
+      "priority": 10
+    },
+    "politicsStatus": {
+      "keywords": ["politics", "politicalstatus", "政治面貌"],
+      "priority": 10
+    },
+    "phone": {
+      "keywords": ["phone", "tel", "mobile", "telephone", "手机", "电话", "联系方式", "移动电话"],
+      "priority": 10
+    },
+    "email": {
+      "keywords": ["email", "mail", "邮箱", "电子邮件", "邮箱地址"],
+      "priority": 10
+    },
+    "wechat": {
+      "keywords": ["wechat", "weixin", "微信", "微信号"],
+      "priority": 10
+    },
+    "location": {
+      "keywords": ["location", "city", "address", "居住地", "现居地", "所在地"],
+      "priority": 10
+    },
+    "homepage": {
+      "keywords": ["homepage", "portfolio", "github", "个人主页", "作品集", "个人网站"],
+      "priority": 10
+    },
+    "education": {
+      "keywords": ["education", "学历", "最高学历", "教育背景"],
+      "priority": 10
+    },
+    "degree": {
+      "keywords": ["degree", "学位", "学历"],
+      "priority": 10
+    },
+    "school": {
+      "keywords": ["school", "university", "college", "学校", "毕业院校", "教育经历"],
+      "priority": 10
+    },
+    "major": {
+      "keywords": ["major", "profession", "专业", "主修专业"],
+      "priority": 10
+    },
+    "startDate": {
+      "keywords": ["startdate", "entrancedate", "入学时间", "开始时间"],
+      "priority": 8
+    },
+    "endDate": {
+      "keywords": ["enddate", "graduationdate", "毕业时间", "结束时间"],
+      "priority": 8
+    },
+    "gpa": {
+      "keywords": ["gpa", "绩点", "排名", "gpa", "rank"],
+      "priority": 8
+    },
+    "ranking": {
+      "keywords": ["ranking", "排名", "名次", "专业排名"],
+      "priority": 8
+    },
+    "courses": {
+      "keywords": ["courses", "curriculum", "主修课程", "课程"],
+      "priority": 8
+    },
+    "honors": {
+      "keywords": ["honors", "奖励", "奖学金", "荣誉", "奖项", "获奖情况"],
+      "priority": 8
+    },
+    "researchDirection": {
+      "keywords": ["researchdirection", "研究方向", "研究领域"],
+      "priority": 8
+    },
+    "company": {
+      "keywords": ["company", "workcompany", "公司", "工作单位", "任职公司"],
+      "priority": 10
+    },
+    "department": {
+      "keywords": ["department", "dept", "部门", "所在部门"],
+      "priority": 10
+    },
+    "position": {
+      "keywords": ["position", "job", "title", "职位", "岗位", "职务"],
+      "priority": 10
+    },
+    "workStartDate": {
+      "keywords": ["workstartdate", "workstart", "入职时间", "参加工作时间"],
+      "priority": 8
+    },
+    "workEndDate": {
+      "keywords": ["workenddate", "workend", "离职时间", "工作结束时间"],
+      "priority": 8
+    },
+    "description": {
+      "keywords": ["description", "responsibilities", "工作内容", "工作描述", "工作职责"],
+      "priority": 10
+    },
+    "projectName": {
+      "keywords": ["projectname", "project", "项目名称", "项目"],
+      "priority": 10
+    },
+    "projectRole": {
+      "keywords": ["projectrole", "role", "角色", "担任角色", "项目职责"],
+      "priority": 10
+    },
+    "projectDescription": {
+      "keywords": ["projectdesc", "projectdescription", "项目描述", "项目内容"],
+      "priority": 10
+    },
+    "organization": {
+      "keywords": ["organization", "club", "组织", "社团", "团队"],
+      "priority": 10
+    },
+    "campusPosition": {
+      "keywords": ["campusposition", "campusrole", "职务", "担任职务", "学生会职务"],
+      "priority": 10
+    },
+    "skills": {
+      "keywords": ["skill", "skills", "技能", "技术栈", "专业技能"],
+      "priority": 10
+    },
+    "english": {
+      "keywords": ["english", "cet", "英语", "外语", "语言能力"],
+      "priority": 10
+    },
+    "computer": {
+      "keywords": ["computer", "software", "计算机", "办公软件", "技能专长"],
+      "priority": 10
+    },
+    "selfEvaluation": {
+      "keywords": ["summary", "intro", "evaluation", "自我评价", "个人总结", "自我介绍"],
+      "priority": 10
+    },
+    "hobbies": {
+      "keywords": ["hobby", "interest", "兴趣爱好", "爱好"],
+      "priority": 10
+    },
+    "expectedSalary": {
+      "keywords": ["salary", "expectedsalary", "期望薪资", "薪资要求"],
+      "priority": 10
+    },
+    "availability": {
+      "keywords": ["availability", "到岗时间", "入职时间"],
+      "priority": 10
+    }
+  },
+  "inputTypes": {
+    "email": ["email"],
+    "phone": ["tel"],
+    "url": ["url"]
+  }
+}

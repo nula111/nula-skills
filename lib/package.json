@@ -1,0 +1,9 @@
+{
+  "name": "resume-filler-extension-libs",
+  "version": "1.0.0",
+  "description": "Required libraries for resume filler extension",
+  "dependencies": {
+    "pdfjs-dist": "^3.11.174",
+    "mammoth": "^1.6.0"
+  }
+}

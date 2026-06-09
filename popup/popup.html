@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简历填充助手</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>📝 简历填充助手</h1>
+      <div class="site-info" id="siteInfo">检测中...</div>
+    </header>
+
+    <main class="main">
+      <!-- 简历状态 -->
+      <section class="section resume-status">
+        <div class="status-row">
+          <span class="status-label">简历数据</span>
+          <span class="status-value" id="resumeStatus">未导入</span>
+        </div>
+        <div class="status-row" id="resumePreview" style="display: none;">
+          <span class="preview-name" id="previewName"></span>
+          <span class="preview-email" id="previewEmail"></span>
+        </div>
+      </section>
+
+      <!-- 操作按钮 -->
+      <section class="section actions">
+        <button class="btn btn-primary" id="fillBtn" disabled>
+          <span class="btn-icon">🚀</span>
+          填充当前页面
+        </button>
+        <button class="btn btn-secondary" id="importBtn">
+          <span class="btn-icon">📥</span>
+          导入简历
+        </button>
+        <button class="btn btn-secondary" id="exportBtn" disabled>
+          <span class="btn-icon">📤</span>
+          导出简历
+        </button>
+      </section>
+
+      <!-- 填充结果 -->
+      <section class="section result" id="resultSection" style="display: none;">
+        <div class="result-header">
+          <span class="result-icon" id="resultIcon">✅</span>
+          <span class="result-title" id="resultTitle">填充完成</span>
+        </div>
+        <div class="result-details" id="resultDetails"></div>
+      </section>
+
+      <!-- 检测到的字段 -->
+      <section class="section fields" id="fieldsSection">
+        <h2 class="section-title">检测到的字段</h2>
+        <div class="fields-list" id="fieldsList">
+          <div class="loading">正在扫描...</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="#" id="openOptions">⚙️ 设置</a>
+      <span class="version">v1.0.0</span>
+    </footer>
+  </div>
+
+  <!-- 隐藏的文件输入 -->
+  <input type="file" id="fileInput" accept=".json" style="display: none;">
+
+  <script src="popup.js"></script>
+</body>
+</html>

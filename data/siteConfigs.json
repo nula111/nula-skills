@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "description": "招聘网站站点配置",
+  "sites": {
+    "zhipin": {
+      "name": "BOSS直聘",
+      "domain": "zhipin.com",
+      "fieldMapping": {
+        "name": "basic.name",
+        "email": "basic.email",
+        "phone": "basic.phone"
+      }
+    },
+    "zhaopin": {
+      "name": "智联招聘",
+      "domain": "zhaopin.com",
+      "fieldMapping": {}
+    },
+    "51job": {
+      "name": "前程无忧",
+      "domain": "51job.com",
+      "fieldMapping": {}
+    },
+    "liepin": {
+      "name": "猎聘",
+      "domain": "liepin.com",
+      "fieldMapping": {}
+    },
+    "lagou": {
+      "name": "拉勾网",
+      "domain": "lagou.com",
+      "fieldMapping": {}
+    },
+    "jd": {
+      "name": "京东招聘",
+      "domain": "jd.com",
+      "fieldMapping": {}
+    },
+    "tencent": {
+      "name": "腾讯招聘",
+      "domain": "tencent.com",
+      "fieldMapping": {}
+    },
+    "alibaba": {
+      "name": "阿里巴巴招聘",
+      "domain": "alibaba.com",
+      "fieldMapping": {}
+    },
+    "bytedance": {
+      "name": "字节跳动招聘",
+      "domain": "bytedance.com",
+      "fieldMapping": {}
+    },
+    "baidu": {
+      "name": "百度招聘",
+      "domain": "baidu.com",
+      "fieldMapping": {}
+    }
+  }
+}
