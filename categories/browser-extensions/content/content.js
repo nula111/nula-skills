@@ -121,6 +121,21 @@ const ResumeFiller = {
     if (fieldType === 'location') return this.resumeData.basic?.location;
     if (fieldType === 'homepage') return this.resumeData.basic?.homepage;
 
+    // Wecruit 特殊字段
+    if (fieldType === 'height') return this.resumeData.basic?.height;
+    if (fieldType === 'weight') return this.resumeData.basic?.weight;
+    if (fieldType === 'ethnicity') return this.resumeData.basic?.ethnicity;
+    if (fieldType === 'maritalStatus') return this.resumeData.basic?.maritalStatus;
+    if (fieldType === 'idType') return this.resumeData.basic?.idType || '身份证';
+    if (fieldType === 'idNumber') return this.resumeData.basic?.idNumber;
+    if (fieldType === 'nativePlace') return this.resumeData.basic?.nativePlace;
+    if (fieldType === 'homePhone') return this.resumeData.basic?.homePhone;
+    if (fieldType === 'expectedSalary') return this.resumeData.personalSummary?.expectedSalary;
+    if (fieldType === 'expectedLocation') return this.resumeData.personalSummary?.expectedLocation;
+    if (fieldType === 'acceptAdjustment') return this.resumeData.personalSummary?.acceptAdjustment || '是';
+    if (fieldType === 'adjustmentPosition') return this.resumeData.personalSummary?.adjustmentPosition;
+    if (fieldType === 'hasExperience') return this.resumeData.workExperience?.length > 0 ? '是' : '否';
+
     // 教育相关 - 取第一条
     if (fieldType === 'school' && this.resumeData.education?.length > 0) {
       return this.resumeData.education[0].school;
@@ -151,6 +166,21 @@ const ResumeFiller = {
     }
     if (fieldType === 'researchDirection' && this.resumeData.education?.length > 0) {
       return this.resumeData.education[0].researchDirection;
+    }
+    if (fieldType === 'college' && this.resumeData.education?.length > 0) {
+      return this.resumeData.education[0].college;
+    }
+    if (fieldType === 'mentor' && this.resumeData.education?.length > 0) {
+      return this.resumeData.education[0].mentor;
+    }
+    if (fieldType === 'avgScore' && this.resumeData.education?.length > 0) {
+      return this.resumeData.education[0].avgScore;
+    }
+    if (fieldType === 'studyType' && this.resumeData.education?.length > 0) {
+      return this.resumeData.education[0].studyType || '全日制';
+    }
+    if (fieldType === 'eduType' && this.resumeData.education?.length > 0) {
+      return this.resumeData.education[0].eduType || '统招';
     }
 
     // 工作经历 - 取第一条
@@ -204,7 +234,10 @@ const ResumeFiller = {
       }
     }
     if (fieldType === 'english' && this.resumeData.skills?.languages) {
-      return this.resumeData.skills.languages.map(l => `${l.name} (${l.score})`).join(', ');
+      return this.resumeData.skills.languages[0]?.name || 'CET-6';
+    }
+    if (fieldType === 'languageScore' && this.resumeData.skills?.languages) {
+      return this.resumeData.skills.languages[0]?.score || '619';
     }
     if (fieldType === 'computer' && this.resumeData.skills) {
       const arr = [];
@@ -345,6 +378,26 @@ const ResumeFiller = {
         '群众': '群众', '无党派人士': '无党派人士'
       };
       return politicsMap[str] || str;
+    }
+
+    // 性别标准化
+    if (fieldType === 'gender') {
+      const genderMap = {
+        '男': '男', '男性': '男',
+        '女': '女', '女性': '女'
+      };
+      return genderMap[str] || str;
+    }
+
+    // 是否接受调剂
+    if (fieldType === 'acceptAdjustment') {
+      return str === '是' || str === 'yes' || str === 'Y' ? '是' : '否';
+    }
+
+    // 民族标准化
+    if (fieldType === 'ethnicity') {
+      if (!str || str === '汉族') return '汉族';
+      return str;
     }
 
     return str;

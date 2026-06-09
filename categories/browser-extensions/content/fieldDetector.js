@@ -155,20 +155,106 @@ const FieldDetector = {
 
     // 其他
     selfEvaluation: {
-      keywords: ['summary', 'intro', 'evaluation', '自我评价', '个人总结', '自我介绍', '简介', '个人简介', '自我描述'],
+      keywords: ['summary', 'intro', 'evaluation', '自我评价', '个人总结', '自我介绍', '简介', '个人简介', '自我描述', '评价内容'],
       type: 'textarea'
     },
     hobbies: {
-      keywords: ['hobby', 'interest', '兴趣爱好', '爱好', '个人爱好', '特长爱好'],
+      keywords: ['hobby', 'interest', '兴趣爱好', '爱好', '个人爱好', '特长爱好', '个人技能'],
       type: 'text'
     },
     expectedSalary: {
-      keywords: ['salary', 'expectedsalary', '期望薪资', '薪资要求', '期望薪酬', '工资'],
+      keywords: ['salary', 'expectedsalary', '期望薪资', '薪资要求', '期望薪酬', '工资', '期望月薪'],
       type: 'text'
     },
     availability: {
       keywords: ['availability', '到岗时间', '入职时间', '可到岗时间', '可入职时间'],
       type: 'select'
+    },
+
+    // Wecruit 系统特殊字段
+    height: {
+      keywords: ['身高', '身高（cm）', '身高cm'],
+      type: 'text'
+    },
+    weight: {
+      keywords: ['体重', '体重（kg）', '体重kg'],
+      type: 'text'
+    },
+    ethnicity: {
+      keywords: ['民族', '种族'],
+      type: 'select'
+    },
+    maritalStatus: {
+      keywords: ['婚恋情况', '婚姻状况', '婚否'],
+      type: 'select'
+    },
+    idType: {
+      keywords: ['证件类型', '证件类型'],
+      type: 'select'
+    },
+    idNumber: {
+      keywords: ['证件号码', '身份证号', '身份证号码'],
+      type: 'text'
+    },
+    nativePlace: {
+      keywords: ['籍贯', '出生地', '户籍'],
+      type: 'text'
+    },
+    homePhone: {
+      keywords: ['家庭电话', '家庭联系电话'],
+      type: 'tel'
+    },
+    college: {
+      keywords: ['学院', '分院', '系'],
+      type: 'text'
+    },
+    mentor: {
+      keywords: ['导师姓名', '导师', '指导老师'],
+      type: 'text'
+    },
+    avgScore: {
+      keywords: ['在校平均成绩', '平均成绩', '成绩'],
+      type: 'text'
+    },
+    studyType: {
+      keywords: ['学习性质', '学习方式', '培养方式'],
+      type: 'select'
+    },
+    eduType: {
+      keywords: ['教育类型', '招生类型', '培养类型'],
+      type: 'select'
+    },
+    expectedLocation: {
+      keywords: ['期望工作地点', '期望工作城市', '期望地点', '工作地点'],
+      type: 'text'
+    },
+    acceptAdjustment: {
+      keywords: ['是否接受调剂', '接受调剂', '调剂'],
+      type: 'select'
+    },
+    adjustmentPosition: {
+      keywords: ['调剂岗位', '调剂方向'],
+      type: 'text'
+    },
+    hasExperience: {
+      keywords: ['是否有相关经历', '是否有经历', '相关经历'],
+      type: 'select'
+    },
+    certName: {
+      keywords: ['专业技术资格名称', '资格证书名称', '资格名称'],
+      type: 'text'
+    },
+    certDate: {
+      keywords: ['取得资格时间', '获证时间', '证书时间'],
+      type: 'text'
+    },
+    certNumber: {
+      keywords: ['资格证书编号', '证书编号'],
+      type: 'text'
+    },
+    languageScore: {
+      keywords: ['英语等级分数', '英语分数', '等级分数', '分数'],
+      type: 'text'
     }
   },
 
